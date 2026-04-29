@@ -9,6 +9,7 @@
       content="Quinza! is a fast strategic card game inspired by Amazigh style. Download now on Google Play."
     />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts.js"></script>
   </head>
   <body>
     <div class="page-bg"></div>
@@ -47,12 +48,21 @@
         </article>
       </section>
 
-      <section class="preview">
-        <img src="assets/menu-bg-table.png" alt="Quinza game table artwork" />
-        <img src="assets/menu-bg-arch.png" alt="Quinza decorative arch artwork" />
-        <img src="assets/mode-card-shell.png" alt="Quinza card shell artwork" />
+      <section class="gallery-section" aria-label="Quinza screenshots">
+        <div class="gallery-header">
+          <h2>Gameplay Preview</h2>
+          <p>Tap or click any screenshot to expand it.</p>
+        </div>
+        <div id="gallery" class="gallery-grid"></div>
       </section>
     </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close preview">×</button>
+      <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
+      <img id="lightbox-image" class="lightbox-image" alt="Expanded screenshot preview" />
+      <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
+    </div>
 
     <footer class="footer">
       <p>Need help? Contact: <a href="mailto:support@quinza-game.com">support@quinza-game.com</a></p>

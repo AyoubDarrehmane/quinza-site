@@ -119,20 +119,117 @@ h1 {
   font-size: 0.95rem;
 }
 
-.preview {
+.gallery-section {
   margin-top: 1.2rem;
+}
+
+.gallery-header h2 {
+  margin: 0;
+}
+
+.gallery-header p {
+  margin: 0.35rem 0 0.8rem;
+  color: var(--muted);
+}
+
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
-.preview img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+.gallery-empty {
+  color: var(--muted);
+  margin: 0;
+}
+
+.gallery-card {
   border-radius: 8px;
   border: 1px solid var(--border);
   background: #170f09;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px #00000066;
+  border-color: #d29437;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  background: #170f09;
+  display: block;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #040404df;
+  z-index: 50;
+  padding: 2rem 4rem;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-image {
+  width: min(95vw, 1400px);
+  height: min(88vh, 920px);
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #94652a;
+  background: #0f0b07;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid #95662b;
+  background: #1c120bcc;
+  color: #f3d9ad;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid #95662b;
+  background: #1c120bcc;
+  color: #f3d9ad;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-prev {
+  left: 16px;
+}
+
+.lightbox-next {
+  right: 16px;
+}
+
+body.lightbox-open {
+  overflow: hidden;
 }
 
 .footer {
@@ -160,11 +257,34 @@ h1 {
   }
 
   .feature-grid,
-  .preview {
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 
-  .preview img {
-    height: 180px;
+  .gallery-card img {
+    height: 240px;
+  }
+
+  .lightbox {
+    padding: 1rem;
+  }
+
+  .lightbox-image {
+    width: 94vw;
+    height: 80vh;
+  }
+
+  .lightbox-nav {
+    bottom: 14px;
+    top: auto;
+    transform: none;
+  }
+
+  .lightbox-prev {
+    left: calc(50% - 58px);
+  }
+
+  .lightbox-next {
+    right: calc(50% - 58px);
   }
 }
